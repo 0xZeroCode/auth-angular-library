@@ -1,6 +1,6 @@
 'use strict';
 
-function failHandlerChainFactory(app, appUrl) {
+function failHandlerChainFactory(app) {
 
   app.factory('failHandlerChain', ['$cookies', '$window', function ($cookies, $window) {
 
@@ -28,7 +28,7 @@ function failHandlerChainFactory(app, appUrl) {
 
       handle: function (error) {
         if (error.status === 302) {
-          $window.location.href = error.data.Location + '?redirecturl=' + appUrl;
+          $window.location.href = error.data.Location;
           return;
         }
 
