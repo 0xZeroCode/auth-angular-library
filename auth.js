@@ -46,11 +46,15 @@ function failHandlerChainFactory(app, appUrl) {
 var tokenKey = 'Authorization';
 
 function checkToken($cookies, $http, failHandlerChain, ContentType) {
-  ContentType = ContentType || 'application/json'; //default is json
-
   var token = $cookies.get(tokenKey);
 
   if (token) return;
+
+  refreshToken($http, failHandlerChain, ContentType);
+}
+
+function refreshToken($http, failHandlerChain, ContentType) {
+  ContentType = ContentType || 'application/json'; //default is json
 
   $http.post('/TokenRefresh', {}, getAuthHeaderConfig(token, ContentType))
     .catch(function (error) {
