@@ -5,7 +5,7 @@
     "irakli jiishkariani <irakli2692@gmail.com>"
   ],
   "description": "",
-  "main": "",
+  "main": "auth.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -13,5 +13,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-cookies": "^1.5.6",
+    "angular-route": "^1.5.6"
+  }
 }

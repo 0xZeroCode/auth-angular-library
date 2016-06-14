@@ -6,7 +6,7 @@ logs
 *.log
 npm-debug.log*
 
-WebInterface/app/bower_components/
+bower_components/
 WebInterface/app/components/
 
 # Runtime data
