@@ -56,7 +56,7 @@ function checkToken($cookies, $http, failHandlerChain, ContentType) {
 function refreshToken($http, failHandlerChain, ContentType) {
   ContentType = ContentType || 'application/json'; //default is json
 
-  $http.post('/TokenRefresh', {})
+  $http.post('/TokenRefresh', {}, getAuthHeaderConfig(null, ContentType))
     .catch(function (error) {
       if (failHandlerChain.handle(error)) return;
       console.error(error);
