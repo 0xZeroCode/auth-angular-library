@@ -1,0 +1,17 @@
+{
+  "name": "auth-angular-library",
+  "homepage": "https://github.com/0xZeroCode/auth-angular-library",
+  "authors": [
+    "irakli jiishkariani <irakli2692@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
