@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 function failHandlerChainFactory(app) {
 
@@ -64,5 +64,6 @@ function refreshToken($http, failHandlerChain, ContentType) {
 }
 
 function getAuthHeaderConfig(tokenHeader, ContentType) {
+  ContentType = ContentType || 'application/json'; //default is json
   return {headers: {'Authorization': tokenHeader, 'Content-Type': ContentType}};
 }
