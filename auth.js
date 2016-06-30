@@ -45,10 +45,22 @@ function failHandlerChainFactory(app) {
 
 var tokenKey = 'Authorization';
 
-function checkToken($cookies, $http, failHandlerChain, ContentType) {
+function checkToken($cookies, $http, failHandlerChain, $routeParams, ContentType) {
+  if (!$routeParams || !$routeParams.authorization) {
+    return checkFromCookies($cookies, $http, failHandlerChain, ContentType);
+  }
+
+  if (!$cookies.get(tokenKey)) {
+    $cookies.put(tokenKey, $routeParams.authorization);
+  }
+
+  return $cookies.get(tokenKey);
+}
+
+function checkFromCookies($cookies, $http, failHandlerChain, ContentType) {
   var token = $cookies.get(tokenKey);
 
-  if (token) return;
+  if (token) return token;
 
   refreshToken($http, failHandlerChain, ContentType);
 }
