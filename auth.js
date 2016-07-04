@@ -50,9 +50,7 @@ function checkToken($cookies, $http, failHandlerChain, $routeParams, ContentType
     return checkFromCookies($cookies, $http, failHandlerChain, ContentType);
   }
 
-  if (!$cookies.get(tokenKey)) {
-    $cookies.put(tokenKey, $routeParams.authorization);
-  }
+  $cookies.put(tokenKey, $routeParams.authorization);
 
   return $cookies.get(tokenKey);
 }
