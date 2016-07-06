@@ -16,10 +16,10 @@ function failHandlerChainFactory(app) {
       handle: function (error) {
         if (error.status === 500) {
           console.error(error);
-          return;
+          return true;
         }
 
-        this.nextHandler.handle(error);
+        return this.nextHandler.handle(error);
       }
     };
 
@@ -29,10 +29,10 @@ function failHandlerChainFactory(app) {
       handle: function (error) {
         if (error.status === 302) {
           $window.location.href = error.data.Location;
-          return;
+          return true;
         }
 
-        this.nextHandler.handle(error);
+        return this.nextHandler.handle(error);
       }
     };
 
